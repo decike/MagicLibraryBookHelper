@@ -1,0 +1,9 @@
+opencv-python
+mss
+numpy
+rapidocr_onnxruntime
+rapidfuzz
+
+# 可选：如果你用了托盘退出方案，请取消下面两行的注释
+# pystray
+# Pillow
