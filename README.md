@@ -12,22 +12,16 @@
 
 ## 🚀 直接运行（Python 环境）
 
-### 1. 安装依赖
+### 1. 把项目克隆到本地
+```bash
+git clone https://github.com/decike/MagicLibraryBookHelper.git
+cd MagicLibraryBookHelper
+```
+
+### 2. 安装依赖
 确保电脑已安装 Python 3.8+，然后在当前目录打开终端，执行：
 ```bash
 pip install -r requirements.txt
-```
-
-### 2. 准备目录文件
-确保 `catalog.txt` 与脚本在同一目录下。`catalog.txt` 内容格式如下：
-```text
-1A：魔物学
-《魔兽行为学》
-《魔兽生态图鉴》
-...
-2Q：语言
-《多种族沟通术》
-...
 ```
 
 ### 3. 运行脚本
@@ -38,9 +32,16 @@ python book_shelf_overlay.py
 ### 4. 游戏设置
 **必须**将游戏设置为“无边框窗口（Borderless Windowed）”或“窗口化全屏”模式，否则透明覆盖层会被游戏画面遮挡。
 
-## 📦 打包成 EXE（发给朋友用）
+## 📦 下载与使用说明
 
-如果你想把脚本打包成独立的 exe 文件发给没有 Python 环境的朋友，请使用 PyInstaller。
+1. 下载release的 `MagicLibraryBookHelper.zip` 并解压。
+2. 确保 `book_shelf_overlay.exe` 和 `catalog.txt` 在同一个文件夹内。
+3. 双击运行 `book_shelf_overlay.exe`。
+4. **重要**：请将游戏设置为“无边框窗口（Borderless Windowed）”模式，否则透明显示层会被游戏画面遮挡。
+
+## 📦 自己打包成 EXE
+
+如果你不放心我打包的 exe ，想自己打包，请使用 PyInstaller。
 
 ### 1. 安装打包工具
 ```bash
