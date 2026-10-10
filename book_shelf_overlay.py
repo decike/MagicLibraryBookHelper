@@ -179,10 +179,15 @@ def set_click_through():
 
 root.after(100, set_click_through)
 
+
 def draw_text_with_outline(x, y, text, fill='white', outline='black'):
-    for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+    """画带指定颜色描边的文字（8方向描边，让边缘更饱满）"""
+    for dx, dy in [(-1, -1), (-1, 0), (-1, 1), 
+                   (0, -1),           (0, 1), 
+                   (1, -1),  (1, 0),  (1, 1)]:
         canvas.create_text(x + dx, y + dy, text=text, anchor='w', fill=outline, font=FONT)
     canvas.create_text(x, y, text=text, anchor='w', fill=fill, font=FONT)
+
 
 def update_overlay():
     try:
@@ -193,7 +198,14 @@ def update_overlay():
                 y = REGION['top'] + i * ROW_H + ROW_H // 2
                 if shelf:
                     display = f'{shelf}：{shelf_name}'
-                    draw_text_with_outline(DISPLAY_X, y, display)
+                    if shelf.startswith('1'):
+                        # 1x 书架：白字 + 粉色描边
+                        draw_text_with_outline(DISPLAY_X, y, display, 
+                                               fill='white', outline='#FF69B4')
+                    else:
+                        # 2x 书架：白字 + 蓝色描边
+                        draw_text_with_outline(DISPLAY_X, y, display, 
+                                               fill='white', outline='#00BFFF')
             root.update()
     except queue.Empty:
         pass
